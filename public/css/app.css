@@ -1,5 +1,89 @@
-.title {
-  font-size: 50px;
+@import url(https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap);
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+*::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+
+*::-webkit-scrollbar:vertical {
+  width: 12px;
+}
+
+*::-webkit-scrollbar-button:increment, *::-webkit-scrollbar-button {
+  display: none;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #797979;
+  border-radius: 10px;
+  border: 2px solid #f1f2f3;
+}
+
+*::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+.menu-navigation {
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+  background: #00c5fb;
+  border-bottom: 1px solid white;
+}
+.menu-navigation .menu-logo {
+  height: 100%;
+  width: 120px;
+  background: #4a5568;
+}
+.menu-navigation .menu-items li {
+  list-style: none;
+  display: inline-flex;
+  font-size: 1rem;
+}
+.menu-navigation .menu-items li .menu_items_list {
+  color: white;
+  text-decoration: none;
+  margin-left: 10px;
+}
+.menu-navigation .menu-items li .menu_items_list:hover {
+  text-decoration: underline;
+}
+.menu-navigation .menu-items li .menu_items_botton {
+  border-radius: 20px;
+  border: 1px solid white;
+  padding: 0.5rem 1.5rem;
+  margin: 0 15px;
+  color: white;
+  font-weight: bolder;
+}
+.menu-navigation .menu-items li .menu_items_botton:hover {
+  background: white;
+  color: #00c5fb;
+}
+.menu-navigation .menu-items li .menu_items_bottom-bold {
+  border-radius: 20px;
+  padding: 0.5rem 1.5rem;
+  margin-right: 15px;
+  color: #00c5fb;
+  font-weight: bolder;
+  background: white;
+}
+
+.hero {
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(180deg, #03c7ee 50%, #00d0fa 50%);
 }
 /*! tailwindcss v2.0.3 | MIT License | https://tailwindcss.com */
 
