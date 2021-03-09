@@ -6,10 +6,10 @@
     <header>
         <nav class="menu-navigation">
             <div class="menu-logo">
-                <img src="" alt="">
+                <a href="#inicio"><img src="{{asset('settings/icono_secondary.svg')}}" alt=""></a>
             </div>
             <div class="menu-items">
-                <li><a href="#" class="menu_items_list">Inicio</a></li>
+                <li><a href="#inicio" class="menu_items_list">Inicio</a></li>
                 <li><a href="#caracteristicas" class="menu_items_list">Características</a></li>
                 <li><a href="#ventajas" class="menu_items_list">Ventajas</a></li>
                 <li><a href="#planes" class="menu_items_list">Planes</a></li>
@@ -18,7 +18,7 @@
                 <li><a href="" class="menu_items_bottom-bold">CREAR CUENTA</a></li>
             </div>
         </nav>
-        <section class="hero">
+        <section class="hero" id="inicio">
             <div class="hero-textos">
                 <h1>Software de Ventas <span>SOFTVENT</span> para Pymes</h1>
                 <p>Fácil de adquirir y usar, con un equipo de soporte listo cuando lo necesite!</p>
@@ -146,33 +146,30 @@
             <div class="cards-content">
                 <div class="card-price">
                     <h2>Plan Free</h2>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <a href=""></a>
+                    <p>0 COP/Mes</p>
+                    <span>Gratis por 1 mes</span>
+                    <span>100 productos</span>
+                    <span>5 provedores</span>
+                    <span>Facturas ilimitadas</span>
+                    <a href="" class="boton-price">ELEGIR PLAN</a>
                 </div>
-                <div class="card-price">
+                <div class="card-price card-price-bold">
                     <h2>Plan Mensual</h2>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <a href=""></a>
+                    <p>20.000 COP/Mes</p>
+                    <span>Otro mes gratis</span>
+                    <span>Productos ilimitados</span>
+                    <span>Provedores ilimitados</span>
+                    <span>Facturas ilimitadas</span>
+                    <a href="" class="boton-price">ELEGIR PLAN</a>
                 </div>
                 <div class="card-price">
                     <h2>Plan Anual</h2>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <a href=""></a>
+                    <p>180.000 COP/Año</p>
+                    <span>Pagas 9 meses</span>
+                    <span>Productos ilimitados</span>
+                    <span>Provedores ilimitados</span>
+                    <span>Facturas ilimitadas</span>
+                    <a href="" class="boton-price">ELEGIR PLAN</a>
                 </div>
             </div>
         </section>

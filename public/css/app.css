@@ -4643,18 +4643,24 @@ body {
 
 .menu-navigation {
   padding: 0;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 70px;
   background: #00c5fb;
   border-bottom: 1px solid white;
+  position: fixed;
+  z-index: 100;
 }
 .menu-navigation .menu-logo {
   margin-left: 15px;
   height: 100%;
-  width: 120px;
-  background: #4a5568;
+  display: flex;
+  align-items: center;
+}
+.menu-navigation .menu-logo img {
+  height: 60px;
 }
 .menu-navigation .menu-items li {
   list-style: none;
@@ -4862,7 +4868,7 @@ body {
 
 .trust {
   width: 100%;
-  height: 100vh;
+  height: 90vh;
   background: #EEF5FF;
   padding: 60px;
   display: flex;
@@ -4876,7 +4882,7 @@ body {
   width: 100%;
   display: flex;
   align-items: center;
-  margin-top: 3rem;
+  margin-top: 2rem;
 }
 .trust .trust-items .target .target-icon {
   min-width: 70px;
@@ -4919,7 +4925,7 @@ body {
   margin-left: 5rem;
 }
 .trust .trust-items .target-three {
-  margin-left: 12rem;
+  margin-left: 11rem;
 }
 .trust .trust-image {
   width: 100%;
@@ -4932,9 +4938,8 @@ body {
 }
 
 .price {
-  border-top: 3px solid white;
   width: 100%;
-  height: 100vh;
+  height: 90vh;
   background: #EEF5FF;
   padding: 60px 250px;
 }
@@ -4946,21 +4951,45 @@ body {
 }
 .price .cards-content .card-price {
   width: 100%;
-  margin: 1.2rem 0.5rem;
+  margin: 1.2rem 0.8rem;
   text-align: center;
   background: #00c5fb;
-  height: 500px;
-  border-radius: 10px;
-  padding: 50px 10px;
+  height: 400px;
+  border-radius: 6px;
+  padding: 40px 10px;
   overflow: hidden;
   color: #fff;
+  display: flex;
+  flex-direction: column;
 }
 .price .cards-content .card-price h2 {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   font-weight: bold;
   text-align: center;
-  color: #697581;
+  color: white;
   margin: 10px 0;
+}
+.price .cards-content .card-price p {
+  color: #697581;
+  font-size: 1.5rem;
+  border-bottom: 1px solid white;
+}
+.price .cards-content .card-price span {
+  display: block;
+  font-size: 1.2rem;
+  margin-top: 6px;
+  font-weight: lighter;
+}
+.price .cards-content .card-price .boton-price {
+  border-radius: 20px;
+  padding: 0.5rem 1rem;
+  margin-top: 30px;
+  color: #00c5fb;
+  background: white;
+  font-weight: bolder;
+}
+.price .cards-content .card-price-bold {
+  transform: scale(1.1);
 }
 /*! tailwindcss v2.0.3 | MIT License | https://tailwindcss.com */
 
