@@ -173,5 +173,44 @@
                 </div>
             </div>
         </section>
+        <section class="opinions" id="opinions" style="background: url('{{asset('settings/fondo.png')}}')">
+            <h2 class="section-title">Testimonios</h2>
+            <div class="content-opinion">
+                <div class="content-slider">
+                    <span class="descrip-slider">Los invito a utilizar este excelente programa. No tiene pierde y cuenta con el mejor soporte técnico y todas las herramientas necesarias. Excelente. Felicitaciones.</span>
+                    <span class="name-slider">Angel Gustavo Pérez</span>
+                </div>
+                <div class="content-slider">
+                    <span class="descrip-slider">Hace poco compré mi licencia de sofvent y estoy feliz, que herramienta tan fabulosa, realmente es el software más completo que he conocido. Y ni que hablar del soporte, excelente la atención para la resolución de las dudas e inquietudes</span>
+                    <span class="name-slider">Angel Gustavo Pérez</span>
+                </div>
+                <div class="content-slider">
+                    <span class="descrip-slider">En conclusión, excelente empresa con un excelente equipo de trabajo de profesionales y una excelente herramienta como es Softvent, gracias por dárnosla a conocer y brindarnos todos sus conocimientos muy útiles para nuestro desarrollo profesional.</span>
+                    <span class="name-slider">Angel Gustavo Pérez</span>
+                </div>
+            </div>
+        </section>
     </main>
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="red-social">
+                <span><i class="fab fa-facebook"></i></span>
+                <span><i class="fab fa-twitter"></i></span>
+                <span><i class="fab fa-youtube"></i></span>
+            </div>
+            <div class="contact">
+                <span>Sofvent®</span>
+                <span>agperezb@ufpso.edu.co</span>
+                <span>+57 3122671490</span>
+            </div>
+            <div class="newsletter">
+                <span>Suscribete</span>
+                <div class="input-boton">
+                    <input type="text" placeholder="Digita tu correo">
+                    <a href="#">Suscribirse</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-botton"><small>&copy;2021 Sofvent® - Todos los derechos reservados</small></div>
+    </footer>
 @stop
