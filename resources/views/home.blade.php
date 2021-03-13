@@ -14,7 +14,14 @@
                 <li><a href="#ventajas" class="menu_items_list">Ventajas</a></li>
                 <li><a href="#planes" class="menu_items_list">Planes</a></li>
                 <li><a href="#contacto" class="menu_items_list">Contacto</a></li>
-                <li><a href="" class="menu_items_botton">INGRESAR</a></li>
+                <li>
+                    <a id="button-login" class="menu_items_botton">INGRESAR</a>
+                    <div class="content-login">
+                        <div id="form-login" class="login hidden">
+                            @include('auth.login')
+                        </div>
+                    </div>
+                </li>
                 <li><a href="" class="menu_items_bottom-bold">CREAR CUENTA</a></li>
             </div>
         </nav>
@@ -213,4 +220,21 @@
         </div>
         <div class="footer-botton"><small>&copy;2021 Sofvent® - Todos los derechos reservados</small></div>
     </footer>
+
+<!--
+    <div id="form-login" class="modal-container hidden">
+        <div id="modal-content" class="modal">
+            <div class="modal-header">
+                <button id="modal_close" type="button" class="close">
+                    <i class="fa fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <span>Hola soy una modal</span>
+            </div>
+            <div class="modal-footer">
+
+            </div>
+        </div>
+    </div>-->
 @stop

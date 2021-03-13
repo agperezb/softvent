@@ -34,6 +34,7 @@ body {
     border-radius: 10px;
 }
 
+//Estilos de Home
 .menu-navigation {
     padding: 0;
     width: 100%;
@@ -99,8 +100,106 @@ body {
     }
 }
 
+.content-login {
+    position: relative;
+
+    .login {
+        z-index: 999;
+        right: -140px;
+        padding: 20px 30px;
+        color: #5a5a5a;
+        position: absolute;
+        font-size: 14px;
+        cursor: auto;
+        width: 460px;
+        background: white;
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+        border-radius: 4px;
+        top: 50px;
+
+        form {
+
+            .input-group-login {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                margin-bottom: 16px;
+
+                .form-label {
+                    margin-bottom: 0.4rem;
+                    font-size: 0.9rem;
+                    color: #697581;
+                }
+
+                .form-controls {
+                    border-radius: 4px;
+                    border: 1px solid #697581;
+                    background-color: white !important;
+
+                    &:focus {
+                        border: 2px solid #00c5fb;
+                        margin: -1px;
+                    }
+                }
+
+                .password {
+                    position: relative;
+
+                    .input-group-text {
+                        position: absolute;
+                        padding: 10.5px;
+                        background: #00c5fb;
+                        border-bottom-right-radius: 4px;
+                        border-top-right-radius: 4px;
+                        right: 0px;
+                        top: 0px;
+
+                        i {
+                            font-size: 1.1rem;
+                            color: white;
+                        }
+                    }
+                }
+            }
+
+            .form-check {
+                font-size: 1rem;
+                margin-bottom: 1rem;
+
+                .form-check-input {
+                    border-radius: 2px;
+                }
+            }
+
+            .form-footer {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                .text-link {
+                    font-size: 1rem;
+                    cursor: pointer;
+
+                    &:hover {
+                        color: #00c5fb;
+                    }
+                }
+
+                .button-login {
+                    span {
+                        background: #00c5fb;
+                        border-radius: 20px;
+                        padding: 0.6rem 1.6rem;
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+}
+
 .hero {
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     background: linear-gradient(180deg, rgba(0, 197, 251, 1) 49%, rgba(0, 208, 250, 1) 54%);
     display: flex;
@@ -513,7 +612,7 @@ body {
                 height: 40px;
                 border-radius: 50%;
                 background: white;
-                margin-right: 4px;
+                margin-right: 10px;
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -591,5 +690,212 @@ body {
         height: 50px;
         background: #00c5fb;
         color: white;
+        font-size: 1.2rem;
+    }
+}
+
+.modal-container {
+    position: fixed;
+    z-index: 9999;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .modal {
+        width: 600px;
+        height: 300px;
+        position: absolute;
+        background: white;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        border-radius: 14px;
+
+        .modal-header {
+            width: 100%;
+            position: relative;
+            padding: 20px;
+
+
+            .close {
+                position: absolute;
+                right: 20px;
+                top: 20px;
+
+                i {
+                    font-size: 20px;
+                }
+            }
+        }
+
+        .modal-body {
+            width: 100%;
+            height: auto;
+            position: relative;
+            padding: 20px;
+        }
+
+        .modal-footer {
+            width: 100%;
+            position: relative;
+            padding: 20px;
+        }
+    }
+}
+
+//Estilos del Dashboard
+
+.wrapper-main {
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 0.6fr 1fr 1fr 1fr;
+    grid-template-rows: 0.2fr 1.8fr;
+    grid-row-gap: 1px;
+    grid-template-areas:
+    "header header header header"
+    "sidebar content content content";
+
+    .main-header {
+        grid-area: header;
+        background: #00c5fb;
+        border-bottom-right-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .header-logo {
+            width: 17%;
+
+            img {
+                margin-left: 15px;
+            }
+        }
+
+        .header-rol {
+            width: 58%;
+            padding: 5px;
+        }
+
+        .header-user {
+            width: 25%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            margin-right: 1.5rem;
+
+            .user-notificacion {
+                margin-right: 1.5rem;
+                position: relative;
+                cursor: pointer;
+
+                i {
+                    font-size: 1.7rem;
+                    color: white;
+                }
+                span {
+                    position: absolute;
+                    width: 15px;
+                    height: 15px;
+                    top: -8px;
+                    right: -2px;
+                    border-radius: 50%;
+                    background: red;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: white;
+                    font-size: 12px;
+                }
+            }
+
+            .user-account {
+                display: flex;
+                align-items: center;
+
+                .user-photo {
+                    margin-right: 0.7rem;
+                    width: 50px;
+                    height: 50px;
+                    background: white;
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    i {
+                        font-size: 1.7rem;
+                        color: #697581;
+                    }
+                }
+
+                .user-name {
+                    font-size: 1.3rem;
+                    color: white;
+                    cursor: pointer;
+                    display: flex;
+                    flex-direction: column;
+
+                    .user-rol {
+                        font-size: 12px;
+                        text-decoration: underline;
+                    }
+
+                    .profile {
+
+                        span {
+                            margin-left: 0.5rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .main-sidebar {
+        border-left: 20px solid #00c5fb;
+        grid-area: sidebar;
+        background: #d1d5db;
+        border-bottom-right-radius: 20px;
+        border-top-right-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        padding: 10px 0;
+
+        .sidebar-button {
+            width: 90%;
+            padding: 15px 0;
+            background: #00c5fb;
+            border-radius: 0 30px 30px 0;
+            font-size: 15px;
+            color: white;
+            margin-bottom: 10px;
+            display: flex;
+
+            i {
+                display: flex;
+                font-size: 16px;
+                min-width: 18px;
+                justify-content: center;
+            }
+
+            span {
+                margin-left: 10px;
+                font-size: 14px;
+                white-space: nowrap;
+            }
+
+        }
+    }
+
+    .main-content {
+        grid-area: content;
+        background: #fafafa;
     }
 }

@@ -1,4 +1,6 @@
 $(document).ready(function () {
+
+    //Slider testimonios
     let slider = document.querySelector(".content-opinion")
     let sliderIndividual = document.querySelectorAll(".content-slider")
     let contador = 1;
@@ -27,6 +29,38 @@ $(document).ready(function () {
             }, 1500)
         }
     }
+
+    //login
+
+    $('#button-login').click(function () {
+        let login = $('#form-login');
+        $('#login').trigger("reset");
+        if (login.hasClass('hidden')) {
+            login.removeClass('hidden');
+        } else {
+            login.addClass('hidden');
+        }
+    });
+
+    $(document).on("click", function (e) {
+        let login = $('#login');
+        let loginButton = $('#button-login');
+        if (!login.is(e.target) && login.has(e.target).length === 0 && !loginButton.is(e.target) && loginButton.has(e.target).length === 0) {
+            $('#form-login').addClass('hidden');
+        }
+    });
+
+    $('#button-password').click(function () {
+        if ($('#password').attr('type') === 'password') {
+            $('#password').get(0).type = 'text';
+            $('#button-password i').removeClass('far fa-eye');
+            $('#button-password i').addClass('far fa-eye-slash');
+        } else {
+            $('#password').get(0).type = 'password';
+            $('#button-password i').removeClass('far fa-eye-slash');
+            $('#button-password i').addClass('far fa-eye');
+        }
+    });
 })
 
 

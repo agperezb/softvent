@@ -21,5 +21,8 @@
 </head>
 <body class="font-sans antialiased">
     @yield('content')
+    @if(Auth::user()->user_profile == 'administrator')
+        @include('layouts.main')
+    @endif
 </body>
 </html>
