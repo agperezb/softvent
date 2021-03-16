@@ -3,5 +3,5 @@
 @section('title', 'Dashboard')
 
 @section('content')
-
+    <p>Bienvenido al dashboard</p>
 @stop

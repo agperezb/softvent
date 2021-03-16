@@ -5256,32 +5256,28 @@ body {
 .wrapper-main {
   width: 100%;
   height: 100vh;
+  background: #DBDFEA;
+  padding: 10px;
   display: grid;
   grid-template-columns: 0.6fr 1fr 1fr 1fr;
   grid-template-rows: 0.2fr 1.8fr;
-  grid-row-gap: 1px;
-  grid-template-areas: "header header header header" "sidebar content content content";
+  grid-template-areas: "sidebar header header header" "sidebar content content content";
 }
 .wrapper-main .main-header {
   grid-area: header;
-  background: #00c5fb;
-  border-bottom-right-radius: 20px;
+  background: white;
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
-.wrapper-main .main-header .header-logo {
-  width: 17%;
-}
-.wrapper-main .main-header .header-logo img {
-  margin-left: 15px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  border-top-right-radius: 20px;
 }
 .wrapper-main .main-header .header-rol {
-  width: 58%;
+  width: 100%;
   padding: 5px;
 }
 .wrapper-main .main-header .header-user {
-  width: 25%;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -5294,7 +5290,7 @@ body {
 }
 .wrapper-main .main-header .header-user .user-notificacion i {
   font-size: 1.7rem;
-  color: white;
+  color: #a7acb3;
 }
 .wrapper-main .main-header .header-user .user-notificacion span {
   position: absolute;
@@ -5307,7 +5303,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
+  color: #a7acb3;
   font-size: 12px;
 }
 .wrapper-main .main-header .header-user .user-account {
@@ -5318,19 +5314,19 @@ body {
   margin-right: 0.7rem;
   width: 50px;
   height: 50px;
-  background: white;
+  background: #a7acb3;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .wrapper-main .main-header .header-user .user-account .user-photo i {
-  font-size: 1.7rem;
-  color: #697581;
+  font-size: 2.8rem;
+  color: white;
 }
 .wrapper-main .main-header .header-user .user-account .user-name {
   font-size: 1.3rem;
-  color: white;
+  color: #a7acb3;
   cursor: pointer;
   display: flex;
   flex-direction: column;
@@ -5343,39 +5339,75 @@ body {
   margin-left: 0.5rem;
 }
 .wrapper-main .main-sidebar {
-  border-left: 20px solid #00c5fb;
   grid-area: sidebar;
-  background: #d1d5db;
-  border-bottom-right-radius: 20px;
-  border-top-right-radius: 20px;
+  background: #00006C;
   display: flex;
   flex-direction: column;
-  padding: 10px 0;
+  border-bottom-left-radius: 20px;
+  border-top-left-radius: 20px;
+}
+.wrapper-main .main-sidebar .sidebar-logo {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+  padding: 5px 0;
+}
+.wrapper-main .main-sidebar .sidebar-logo img {
+  height: 60px;
 }
 .wrapper-main .main-sidebar .sidebar-button {
-  width: 90%;
-  padding: 15px 0;
-  background: #00c5fb;
-  border-radius: 0 30px 30px 0;
-  font-size: 15px;
-  color: white;
-  margin-bottom: 10px;
   display: flex;
+  flex-direction: column;
+  padding: 15px 12px 15px 0;
 }
-.wrapper-main .main-sidebar .sidebar-button i {
-  display: flex;
+.wrapper-main .main-sidebar .sidebar-button .cta-button {
+  width: 100%;
   font-size: 16px;
+  color: white;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  height: 50px;
+  border-radius: 0 4px 4px 0;
+}
+.wrapper-main .main-sidebar .sidebar-button .cta-button .border-focus {
+  height: 100%;
+  width: 8px;
+  border-radius: 0 4px 4px 0;
+}
+.wrapper-main .main-sidebar .sidebar-button .cta-button .active {
+  background: #EDBC27;
+}
+.wrapper-main .main-sidebar .sidebar-button .cta-button i {
+  display: flex;
+  font-size: 20px;
   min-width: 18px;
   justify-content: center;
+  margin: 0 10px;
 }
-.wrapper-main .main-sidebar .sidebar-button span {
-  margin-left: 10px;
-  font-size: 14px;
+.wrapper-main .main-sidebar .sidebar-button .cta-button span {
+  font-size: 16px;
   white-space: nowrap;
+}
+.wrapper-main .main-sidebar .sidebar-button .cta-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+.wrapper-main .main-sidebar .sidebar-button .active {
+  background: rgba(255, 255, 255, 0.1);
+}
+.wrapper-main .main-sidebar .sidebar-button .active .border-focus {
+  background: #EDBC27;
 }
 .wrapper-main .main-content {
   grid-area: content;
-  background: #fafafa;
+  background: white;
+  border-bottom-right-radius: 20px;
+  padding: 10px;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
 }
 /*! tailwindcss v2.0.3 | MIT License | https://tailwindcss.com */
 

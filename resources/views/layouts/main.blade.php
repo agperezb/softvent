@@ -1,8 +1,5 @@
 <div class="wrapper-main">
     <div class="main-header">
-        <div class="header-logo">
-            <img src="{{asset('settings/icono_secondary.svg')}}" alt="">
-        </div>
         <div class="header-rol">
 
         </div>
@@ -10,7 +7,7 @@
             <span class="user-notificacion"><i class="fas fa-bell"></i><span>5</span></span>
             <div class="user-account">
                 <div class="user-photo">
-                    <i class="fas fa-user"></i>
+                    <i class="fas fa-user-circle"></i>
                     <!--<img src="" alt="">-->
                 </div>
                 <div class="user-name">
@@ -21,16 +18,24 @@
         </div>
     </div>
     <div class="main-sidebar">
-        <a href="" class="sidebar-button">
-            <i class="fas fa-box-open"></i>
-            <span>Productos</span>
-        </a>
-        <a href="" class="sidebar-button">
-            <i class="fas fa-box-open"></i>
-            <span>Categorías</span>
-        </a>
+        <div class="sidebar-logo">
+            <img src="{{asset('settings/logo_primary.svg')}}" alt="">
+        </div>
+        <div class="sidebar-button">
+            <a href="" class="cta-button">
+                <div class="border-focus"></div>
+                <i class="fas fa-box-open"></i>
+                <span>Productos</span>
+            </a>
+            <a href="" class="cta-button active">
+                <div class="border-focus"></div>
+                <i class="fas fa-box-open"></i>
+                <span>Categorías</span>
+            </a>
+        </div>
     </div>
     <div class="main-content">
-
+        @yield('content')
     </div>
+    @yield('modal')
 </div>

@@ -6,7 +6,7 @@
     <header>
         <nav class="menu-navigation">
             <div class="menu-logo">
-                <a href="#inicio"><img src="{{asset('settings/icono_secondary.svg')}}" alt=""></a>
+                <a href="#inicio"><img src="{{asset('settings/logo_primary.svg')}}" alt=""></a>
             </div>
             <div class="menu-items">
                 <li><a href="#inicio" class="menu_items_list">Inicio</a></li>

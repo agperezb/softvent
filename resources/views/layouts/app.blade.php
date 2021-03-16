@@ -20,9 +20,14 @@
     <script src="{{ asset('js/scripts.js') }}"></script>
 </head>
 <body class="font-sans antialiased">
+@if(Auth::guest())
     @yield('content')
-    @if(Auth::user()->user_profile == 'administrator')
+@else
+    @if(Auth::user()->user_profile == 'customer')
+        @yield('content')
+    @else
         @include('layouts.main')
     @endif
+@endif
 </body>
 </html>

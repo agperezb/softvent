@@ -10,6 +10,10 @@ window.axios = require('axios');
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 window.$ = window.jQuery = require('jquery');
+window.DataTable = require('datatables.net');
+require('datatables.net/js/jquery.dataTables');
+require('datatables.net-dt/css/jquery.dataTables.min.css')
+
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening

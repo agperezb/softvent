@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('home');
-});
+})->middleware('guest');
 
 Route::middleware(['is.administrator'])->group(function () {
     Route::get('/dashboard', function () {
@@ -23,5 +23,11 @@ Route::middleware(['is.administrator'])->group(function () {
     })->middleware(['auth'])->name('dashboard');
 });
 
+Route::middleware(['is.customer'])->group(function () {
+    Route::get('/home', function () {
+        return view('home');
+    });
+});
 
-require __DIR__.'/auth.php';
+
+require __DIR__ . '/auth.php';
