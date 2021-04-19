@@ -21,6 +21,10 @@ Route::middleware(['is.administrator'])->group(function () {
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->middleware(['auth'])->name('dashboard');
+
+    Route::get('/provider', function () {
+        return view('dashboard.provider');
+    })->middleware(['auth'])->name('provider');
 });
 
 Route::middleware(['is.customer'])->group(function () {

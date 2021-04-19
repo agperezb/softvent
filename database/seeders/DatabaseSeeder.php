@@ -13,12 +13,14 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         DB::table('users')->insert([
-            'id' => Str::uuid(),
             'user_profile' => 'administrator',
             'email' => 'admin@gmail.com',
+            'commerce_id' => null,
             'password' => Hash::make('admin12345'),
             'user_status' => 1,
             'email_verified_at' => Date::now(),
         ]);
+
+
     }
 }

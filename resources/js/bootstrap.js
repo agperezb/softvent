@@ -10,9 +10,12 @@ window.axios = require('axios');
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 window.$ = window.jQuery = require('jquery');
-window.DataTable = require('datatables.net');
-require('datatables.net/js/jquery.dataTables');
-require('datatables.net-dt/css/jquery.dataTables.min.css')
+
+window.DataTable = require('datatables');
+// require('datatables.net-buttons/js/dataTables.buttons.min')
+// require('datatables.net-buttons/js/buttons.html5.min');
+// require('datatables.net-buttons/js/buttons.colVis.min')
+// require('datatables.net-fixedcolumns/js/dataTables.fixedColumns.min');
 
 
 /**

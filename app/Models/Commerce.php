@@ -12,7 +12,6 @@ class Commerce extends Model
     protected $primaryKey = 'commerce_id';
 
     protected $fillable = [
-        'user_id',
         'commerce_name',
         'commerce_status',
     ];

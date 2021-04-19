@@ -200,6 +200,53 @@ $(document).ready(function () {
             $('#button-password i').addClass('far fa-eye');
         }
     });
+
+    let table = $('.table-pagination');
+    if (table) {
+        table.DataTable({
+            dom: 'Bfrtip',
+            buttons: [
+                {
+                    extend: 'excel',
+                    exportOptions: {
+                        columns: ':visible'
+                    }
+                },
+                {
+                    extend: 'pdf',
+                    exportOptions: {
+                        columns: ':visible'
+                    }
+                },
+                {
+                    extend: 'csv',
+                    exportOptions: {
+                        columns: ':visible'
+                    }
+                },
+                'colvis'
+            ],
+            scrollY: height - margin,
+            scrollX: true,
+            fixedColumns: {
+                leftColumns: 0,
+                rightColumns: fixedColumns
+            },
+            language: language,
+            pageLength: 25,
+        });
+    }
+
+    let search = $('.dataTables_filter input');
+
+    search.attr('placeholder', 'Búsqueda rápida...');
+    search.after('<span><i class="fa fa-search"></i><span>')
+
+    /* -------------------- */
+
+    $('#logout').click(function () {
+        $('#form-logout').submit();
+    });
 })
 
 
