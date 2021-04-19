@@ -137,9 +137,21 @@ const language = {
     "thousands": "."
 };
 
+function message_toast(icon, text) {
+    let time = 2500;
+    Swal.fire({
+        icon: icon,
+        text: text,
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: time
+    });
+}
+
 $(document).ready(function () {
 
-    //Slider testimonios
+    /*//Slider testimonios
     let slider = document.querySelector(".content-opinion")
     let sliderIndividual = document.querySelectorAll(".content-slider")
     let contador = 1;
@@ -167,7 +179,7 @@ $(document).ready(function () {
                 contador = 1;
             }, 1500)
         }
-    }
+    }*/
 
     //login
 
@@ -201,6 +213,20 @@ $(document).ready(function () {
         }
     });
 
+
+    let height = $(window).height();
+    let margin = 205;
+    let fixedColumns = 0;
+
+    /*if ($('.controls-main').length === 1) {
+        margin = margin + 60;
+    }
+
+    if ($('.nav-tabs').length === 1) {
+        margin = margin + 60;
+    }*/
+
+
     let table = $('.table-pagination');
     if (table) {
         table.DataTable({
@@ -226,11 +252,11 @@ $(document).ready(function () {
                 },
                 'colvis'
             ],
-            scrollY: height - margin,
+            scrollY: 205,
             scrollX: true,
             fixedColumns: {
                 leftColumns: 0,
-                rightColumns: fixedColumns
+                rightColumns: 0
             },
             language: language,
             pageLength: 25,
@@ -241,12 +267,8 @@ $(document).ready(function () {
 
     search.attr('placeholder', 'Búsqueda rápida...');
     search.after('<span><i class="fa fa-search"></i><span>')
-
     /* -------------------- */
 
-    $('#logout').click(function () {
-        $('#form-logout').submit();
-    });
 })
 
 

@@ -50,7 +50,7 @@
             </a>
             <a id="logout" class="cta-button">
                 <div class="border-focus"></div>
-                <i class="fas fa-clipboard-list"></i>
+                <i class="fas fa-power-off"></i>
                 <span>Cerrar sesión</span>
             </a>
             <form action="{{route('logout')}}" id="form-logout" method="POST">
@@ -63,3 +63,8 @@
     </div>
     @yield('modal')
 </div>
+<script>
+    $('#logout').click(function () {
+        $('#form-logout').submit();
+    });
+</script>

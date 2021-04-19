@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('home');
-})->middleware('guest');
+})->middleware('guest')->name('root');
 
 Route::middleware(['is.administrator'])->group(function () {
     Route::get('/dashboard', function () {

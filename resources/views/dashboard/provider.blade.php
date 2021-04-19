@@ -13,19 +13,21 @@
     <table class="table table-pagination">
         <thead>
         <tr>
+            <th scope="col">Opciones</th>
             <th scope="col">Título</th>
-            <th scope="col">Descripcion</th>
-            <th scope="col">Usuario</th>
-            <th scope="col">Enviado a</th>
+            <th scope="col">Descripción</th>
+            <th scope="col">Estado</th>
         </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>vvv</td>
-                <td>bbbb</td>
-                <td>ghghgh</td>
-                <td>gfhgh</td>
-            </tr>
+        <tr>
+            <td>
+                aa
+            </td>
+            <td>fvgfv</td>
+            <td>vbxvb</td>
+            <td>vbvbv</td>
+        </tr>
         </tbody>
     </table>
 @stop

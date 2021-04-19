@@ -10,12 +10,16 @@ window.axios = require('axios');
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 window.$ = window.jQuery = require('jquery');
-
+window.Swal = require('sweetalert2');
 window.DataTable = require('datatables');
-// require('datatables.net-buttons/js/dataTables.buttons.min')
-// require('datatables.net-buttons/js/buttons.html5.min');
-// require('datatables.net-buttons/js/buttons.colVis.min')
-// require('datatables.net-fixedcolumns/js/dataTables.fixedColumns.min');
+require('datatables.net-buttons/js/dataTables.buttons.min');
+require('datatables.net-buttons/js/buttons.html5.min');
+require('datatables.net-buttons/js/buttons.colVis.min');
+require('datatables.net-fixedcolumns/js/dataTables.fixedColumns.min');
+window.pdfmake = require('pdfmake');
+window.pdfFonts = require('pdfmake/build/vfs_fonts');
+pdfMake.vfs = pdfFonts.pdfMake.vfs;
+window.JSZip = require('jszip');
 
 
 /**

@@ -20,6 +20,7 @@
     <script src="{{ asset('js/scripts.js') }}"></script>
 </head>
 <body class="font-sans antialiased">
+@include('layouts.validation')
 @if(Auth::guest())
     @yield('content')
 @else
