@@ -4,7 +4,7 @@
     </div>
     <div class="main-header">
         <div class="header-navigation">
-            <span class="active">Dashboard</span>
+            @yield('navigation')
         </div>
         <div class="header-user">
             <span class="user-notificacion"><i class="fas fa-bell"></i><span>5</span></span>
@@ -23,27 +23,27 @@
     </div>
     <div class="main-sidebar">
         <div class="sidebar-button">
-            <a href="{{route('dashboard')}}" class="cta-button active">
+            <a href="{{route('dashboard')}}" class="cta-button dashboard">
                 <div class="border-focus"></div>
                 <i class="fas fa-tachometer-alt"></i>
                 <span>Dashboard</span>
             </a>
-            <a href="" class="cta-button">
+            <a href="" class="cta-button users">
                 <div class="border-focus"></div>
                 <i class="fas fa-users"></i>
                 <span>Usuarios</span>
             </a>
-            <a href="" class="cta-button">
+            <a href="" class="cta-button products">
                 <div class="border-focus"></div>
                 <i class="fas fa-box-open"></i>
                 <span>Productos</span>
             </a>
-            <a href="{{route('provider')}}" class="cta-button">
+            <a href="{{route('provider')}}" class="cta-button providers">
                 <div class="border-focus"></div>
                 <i class="fas fa-hand-holding-medical"></i>
                 <span>Provedores</span>
             </a>
-            <a href="" class="cta-button">
+            <a href="{{route('categories')}}" class="cta-button categories">
                 <div class="border-focus"></div>
                 <i class="fas fa-clipboard-list"></i>
                 <span>Categorías</span>

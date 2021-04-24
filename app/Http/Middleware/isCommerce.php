@@ -8,13 +8,6 @@ use Illuminate\Support\Facades\Auth;
 
 class isCommerce
 {
-    /**
-     * Handle an incoming request.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
-     * @return mixed
-     */
     public function handle(Request $request, Closure $next)
     {
         if (Auth::user()->user_profile == 'commerce') {

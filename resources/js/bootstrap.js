@@ -5,21 +5,25 @@ window._ = require('lodash');
  * to our Laravel back-end. This library automatically handles sending the
  * CSRF token as a header based on the value of the "XSRF" token cookie.
  */
+try {
+    window.axios = require('axios');
 
-window.axios = require('axios');
-
-window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
-window.$ = window.jQuery = require('jquery');
-window.Swal = require('sweetalert2');
-window.DataTable = require('datatables');
-require('datatables.net-buttons/js/dataTables.buttons.min');
-require('datatables.net-buttons/js/buttons.html5.min');
-require('datatables.net-buttons/js/buttons.colVis.min');
-require('datatables.net-fixedcolumns/js/dataTables.fixedColumns.min');
-window.pdfmake = require('pdfmake');
-window.pdfFonts = require('pdfmake/build/vfs_fonts');
-pdfMake.vfs = pdfFonts.pdfMake.vfs;
-window.JSZip = require('jszip');
+    window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+    window.$ = window.jQuery = require('jquery');
+    window.Popper = require('popper.js').default;
+    window.bootstrap = require('bootstrap');
+    window.Swal = require('sweetalert2');
+    window.DataTable = require('datatables');
+    require('datatables.net-buttons/js/dataTables.buttons.min');
+    require('datatables.net-buttons/js/buttons.html5.min');
+    require('datatables.net-buttons/js/buttons.colVis.min');
+    require('datatables.net-fixedcolumns/js/dataTables.fixedColumns.min');
+    window.pdfmake = require('pdfmake');
+    window.pdfFonts = require('pdfmake/build/vfs_fonts');
+    pdfMake.vfs = pdfFonts.pdfMake.vfs;
+    window.JSZip = require('jszip');
+} catch (e) {
+}
 
 
 /**

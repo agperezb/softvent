@@ -13,6 +13,8 @@ class Commerce extends Model
 
     protected $fillable = [
         'commerce_name',
+        'commerce_description',
+        'category_image',
         'commerce_status',
     ];
 }

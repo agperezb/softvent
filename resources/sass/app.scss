@@ -3,6 +3,7 @@
 
 @import '~sweetalert2/src/sweetalert2.scss';
 @import '~datatables/media/css/jquery.dataTables.css';
+@import '~bootstrap/scss/bootstrap';
 
 $primary-color: #00006B;
 $secondary-color: #FF9800;
@@ -186,10 +187,13 @@ body {
 
                 .text-link {
                     font-size: 1rem;
+                    display: inline-block;
+                    color: transparent;
+                    background-image: linear-gradient(0deg, #ffffFB 5%, #00C5FB 100%);
+                    -webkit-background-clip: text;
+                    background-clip: text;
                     cursor: pointer;
-                    background: linear-gradient(180deg, #00C5FB 10.71%, rgba(0, 197, 251, 0) 110.71%);
 
-                    npm run
                     &:hover {
                         color: #00c5fb;
                     }
@@ -543,7 +547,7 @@ body {
             .boton-price {
                 border-radius: 20px;
                 padding: 0.5rem 1rem;
-                margin-top: 30px;
+                margin: 30px 40px;
                 color: #00c5fb;
                 background: white;
                 font-weight: bolder;
@@ -837,8 +841,8 @@ body {
                     position: absolute;
                     width: 15px;
                     height: 15px;
-                    top: -8px;
-                    right: -2px;
+                    top: -3px;
+                    right: -3px;
                     border-radius: 50%;
                     background: red;
                     display: flex;
@@ -921,6 +925,7 @@ body {
                 margin-bottom: 10px;
                 height: 50px;
                 border-radius: 0 4px 4px 0;
+                text-decoration: none;
 
                 .border-focus {
                     height: 100%;
@@ -944,7 +949,7 @@ body {
                 }
             }
 
-            .active {
+            .cta-button_active {
                 background: rgba(255, 255, 255, 0.1);
 
                 .border-focus {
@@ -991,7 +996,6 @@ body {
 
     i {
         width: 16px;
-
     }
     .fa-times {
         font-size: 16px;
@@ -1017,6 +1021,26 @@ body {
     background: #439446;
     color: white;
 }
+
+// navigacion-dashboard
+.navigation {
+
+    .link-navigation {
+        font-size: 18px;
+        color: #8a8a8a;
+        margin-right: 6px;
+        text-decoration: none;
+
+        &:hover {
+            color: $secondary_color;
+        }
+    }
+    .link-navigation-active {
+        color: $secondary_color;
+        border-bottom: 3px solid $secondary-color;
+    }
+}
+
 
 //datatables
 table {
@@ -1179,7 +1203,7 @@ table {
     border-collapse: separate !important;
     border-spacing: 4px !important;
 
-    .button-atc {
+    .button-soft {
         height: 36px !important;
         font-size: 13px;
     }
@@ -1287,6 +1311,44 @@ table {
             margin-left: 6px;
             font-size: 16px;
         }
+    }
+}
+
+//dashboard-admin
+.content-dashboard {
+    display: grid;
+    grid-template-columns: 1fr 1fr 0.8fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 10px;
+    grid-template-areas:
+    "vents vents commerce"
+    "products products commerce";
+    width: 100%;
+    height: 100%;
+
+    .dashboard-vents {
+        grid-area: vents;
+        background: #E5F2FE;
+        border-radius: 4px;
+        padding: 10px;
+        overflow: auto;
+    }
+
+    .dashboard-product {
+        grid-area: products;
+        background: #E5DEF0;
+        border-radius: 4px;
+        padding: 10px;
+        overflow: auto;
+    }
+
+    .dashboard-comerces {
+        grid-area: commerce;
+        background: #F6F0D8;
+        border-radius: 4px;
+        padding: 10px;
+        overflow: auto;
+
     }
 }
 

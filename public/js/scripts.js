@@ -215,7 +215,7 @@ $(document).ready(function () {
 
 
     let height = $(window).height();
-    let margin = 205;
+    let margin = 205 - height;
     let fixedColumns = 0;
 
     /*if ($('.controls-main').length === 1) {
@@ -252,7 +252,7 @@ $(document).ready(function () {
                 },
                 'colvis'
             ],
-            scrollY: 205,
+            scrollY: 400,
             scrollX: true,
             fixedColumns: {
                 leftColumns: 0,
@@ -269,6 +269,27 @@ $(document).ready(function () {
     search.after('<span><i class="fa fa-search"></i><span>')
     /* -------------------- */
 
+    /* ------Tooltip-------- */
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+    /* -------------------- */
+
+    let cta_button = $('.cta-button');
+    let url = window.location;
+    cta_button.removeClass('cta-button_active');
+
+    if (url.toString().indexOf('dashboard') !== -1) {
+        $('.dashboard').addClass('cta-button_active');
+    }
+    if (url.toString().indexOf('categories') !== -1) {
+        $('.categories').addClass('cta-button_active');
+        $('#categories').addClass('link-navigation-active')
+    }
+    if (url.toString().indexOf('administrators') !== -1) {
+        $('.users').addClass('cta-button_active');
+        $('#administrators').addClass('active');
+    }
 })
 
 

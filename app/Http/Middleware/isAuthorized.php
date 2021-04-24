@@ -8,17 +8,10 @@ use Illuminate\Support\Facades\Auth;
 
 class isAuthorized
 {
-    /**
-     * Handle an incoming request.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
-     * @return mixed
-     */
     public function handle(Request $request, Closure $next)
     {
         if (Auth::user()->user_profile == 'commerce' || Auth::user()->user_profile == 'administrator'
-            || Auth::user()->user_profile == 'sub_administrator') {
+            || Auth::user()->user_profile == 'cashier') {
             return $next($request);
         }
         return redirect('/');

@@ -65,8 +65,9 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'is.administrator' => \App\Http\Middleware\isAdministrator::class,
         'is.commerce' => \App\Http\Middleware\isCommerce::class,
-        'is.customer' => \App\Http\Middleware\isCustomer::class,
+        'is.cashier' => \App\Http\Middleware\isCashier::class,
         'is.authorized' => \App\Http\Middleware\isAuthorized::class,
-        'is.guest-is.customer' => \App\Http\Middleware\isGuestisCustomer::class,
+        'is.commerce-is.cashier' => \App\Http\Middleware\isCommerceisCashier::class,
+        'active' => \App\Http\Middleware\isActive::class
     ];
 }

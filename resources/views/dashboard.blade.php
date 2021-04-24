@@ -3,5 +3,15 @@
 @section('title', 'Dashboard')
 
 @section('content')
-    <p>Bienvenido al dashboard</p>
+    <div class="content-dashboard">
+        <div class="dashboard-vents">
+
+        </div>
+        <div class="dashboard-product">
+
+        </div>
+        <div class="dashboard-comerces">
+
+        </div>
+    </div>
 @stop
