@@ -13,6 +13,7 @@ try {
     window.Popper = require('popper.js').default;
     window.bootstrap = require('bootstrap');
     window.Swal = require('sweetalert2');
+    window.select2 = require('select2'),
     window.DataTable = require('datatables');
     require('datatables.net-buttons/js/dataTables.buttons.min');
     require('datatables.net-buttons/js/buttons.html5.min');

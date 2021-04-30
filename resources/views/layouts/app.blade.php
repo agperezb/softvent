@@ -21,6 +21,7 @@
 </head>
 <body class="font-sans antialiased">
 @include('layouts.validation')
+@include('layouts.image')
 @if(Auth::guest())
     @yield('content')
 @else

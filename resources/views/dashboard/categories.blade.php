@@ -68,31 +68,60 @@
 @section('modal')
     <!-- Modal register-->
     <div class="modal fade" id="register" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-md modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <span class="modal-title" id="exampleModalLabel"><i class="fa fa-map-signs"></i> @if(session('id_to_update'))Editar @else Registrar @endif categoría</span>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
+                        <i class="fa fa-times"></i>
                     </button>
                 </div>
-                <div class="modal-body">
-                    dfjsdfjo
-                </div>
-                <div class="modal-footer">
-                    <button type="reset" class="button-soft-secondary">
-                        <span>Limpiar</span>
-                        <i class="fa fa-eraser"></i>
-                    </button>
-                    <button type="submit" class="button-soft-primary">
-                        <span>Guardar</span>
-                        <i class="fa fa-save"></i>
-                    </button>
-                </div>
+                <form id="register_form" action="@if(session('id_to_update')){{route('categories_update',session('id_to_update'))}}@else{{route('categories')}}@endif" method="POST" autocomplete="off" enctype="multipart/form-data">
+                    <div class="modal-body">
+                        @csrf
+                        @if(session('id_to_update'))
+                            @method('PUT')
+                        @endif
+                        <div class="row">
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                <div class="mb-3 input-soft">
+                                    <label class="form-label">Nombre</label>
+                                    <input type="text" class="form-control input-border" name="category_name"
+                                           placeholder="Digite el nombre" maxlength="30"
+                                           value="@if(session('data')){{session('data')->category_name}}@endif{{ old('category_name') }}"
+                                           @if ($errors->has('category_name')) autofocus @endif>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                <div class="mb-3 input-soft">
+                                    <label
+                                        class="form-label">Imagen principal
+                                        <span class="fs-13">[Dimensión: 128px * 128px]</span>
+                                    </label>
+                                    <label for="image_upload" class="input-file">
+                                        <span id="label_upload">Subir imagen principal</span>
+                                        <i class="fa fa-upload"></i>
+                                    </label>
+                                    <input type="file" id="image_upload" class="form-control input-border" name="file_image" accept="image/png">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="reset" class="button-soft button-soft-secondary">
+                            <span>Limpiar</span>
+                            <i class="fa fa-eraser"></i>
+                        </button>
+                        <button type="submit" class="button-soft button-soft-primary">
+                            <span>Guardar</span>
+                            <i class="fa fa-save"></i>
+                        </button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
-    @if(!$errors->isEmpty() || (session('register')) || session('clear'))
+    @if(!$errors->isEmpty() || (session('register')) || session('data'))
         <script>
             $('#register').modal('show')
         </script>

@@ -2,6 +2,7 @@
 @import '~@fortawesome/fontawesome-free/css/all.css';
 
 @import '~sweetalert2/src/sweetalert2.scss';
+@import '~select2/dist/css/select2.css';
 @import '~datatables/media/css/jquery.dataTables.css';
 @import '~bootstrap/scss/bootstrap';
 
@@ -42,6 +43,77 @@ body {
 *::-webkit-scrollbar-track {
     border-radius: 10px;
 }
+
+// Select2
+
+.select2-container {
+    width: 100% !important;
+
+    .select2-selection {
+        height: 37.04px !important;
+        border-radius: 4px !important;
+        outline: none !important;
+        border-color: #ced4da !important;
+
+        &:focus {
+            border: 2px solid $primary-color !important;
+            box-shadow: none !important;
+        }
+    }
+
+    .select2-dropdown {
+        border: none !important;
+        background-color: white !important;
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+        margin-top: 2px;
+    }
+}
+
+.select2-search__field {
+    outline: none !important;
+    box-shadow: none !important;
+    font-size: 14px !important;
+    border-radius: 4px !important;
+    color: #5a5a5a;
+}
+
+.select2-container--default .select2-search--dropdown .select2-search__field {
+    border: 1px solid #ced4da;
+    padding: 4px 8px;
+}
+
+.select2-selection--multiple {
+    input {
+        margin-top: 2px !important;
+    }
+
+    .select2-selection__choice {
+        margin-top: 1px !important;
+    }
+}
+
+.select2-search--inline {
+    display: contents; /*this will make the container disappear, making the child the one who sets the width of the element*/
+}
+
+.select2-search__field:placeholder-shown {
+    width: 100% !important; /*makes the placeholder to be 100% of the width while there are no options selected*/
+}
+
+.select2-search--dropdown {
+    padding: 4px 6px !important;
+}
+
+.select2-selection__arrow {
+    margin-top: 0.283rem !important;
+}
+
+.select2-selection__rendered {
+    padding: 0.283rem 0 !important;
+    padding-left: 12px !important;
+    padding-right: 20px !important;
+}
+
 
 //Estilos de Home
 .menu-navigation {
@@ -765,6 +837,36 @@ body {
     }
 }
 
+.logo-modal {
+    width: 200px;
+    margin-top: -60px;
+}
+
+.button-modal {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    right: 0;
+    margin-right: -20px;
+    top: 0;
+    margin-top: -20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    color: $secondary-color !important;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+    background: white !important;
+
+    i {
+        font-size: 24px;
+    }
+}
+#image-card {
+    width: 100%;
+    object-fit: cover;
+}
+
 //Estilos del dashboard
 
 .wrapper-main {
@@ -1352,3 +1454,99 @@ table {
     }
 }
 
+//modales
+.modal-header {
+    padding-bottom: 0 !important;
+    border-bottom: none !important;
+    position: relative;
+
+    .modal-title {
+        font-size: 16px;
+        font-weight: bolder;
+        color: $secondary-color;
+
+        i {
+            margin-right: 2px;
+        }
+    }
+
+    button {
+        font-size: 16px !important;
+        background: transparent;
+        border: none;
+        color: inherit;
+    }
+
+}
+.modal-content {
+    border: none !important;
+}
+
+.modal-body, .modal-footer, .modal-header {
+    padding: 1rem 2rem;
+}
+
+.modal-footer {
+    padding-top: 0 !important;
+    border-top: 0 !important;
+}
+
+//input
+.input-soft {
+    input, select, textarea {
+        &:focus {
+            border: 2px solid $primary-color;
+            box-shadow: none !important;
+        }
+    }
+}
+textarea:focus {
+    margin: -1px !important;
+}
+// Input & Group
+.input-soft {
+
+    label {
+        margin-bottom: 0.4rem;
+    }
+
+    .required:after {
+        content: " *";
+        color: #e60017;
+    }
+
+    .input-border {
+        border-radius: 4px;
+    }
+
+    .form-control[readonly] {
+        background: white !important;
+    }
+}
+
+.input-file {
+    display: flex;
+    padding: 0.458rem 0.75rem;
+    border-radius: 4px;
+    color: white;
+    background-color: $secondary-color;
+    justify-content: space-between;
+    cursor: pointer;
+    margin: 0 !important;
+
+    span {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin-right: 10px;
+    }
+
+    i {
+        margin-top: 3px;
+        margin-right: 2px;
+    }
+}
+
+input[type="file"] {
+    display: none;
+}

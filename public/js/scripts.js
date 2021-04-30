@@ -136,6 +136,13 @@ const language = {
     },
     "thousands": "."
 };
+//show_image
+function category_image(id) {
+    $.get("/categories/image/" + id, function (data) {
+        $("#image-card").attr("src", "data:image/png;base64," + data);
+        $("#image-modal").modal('show');
+    });
+}
 
 function message_toast(icon, text) {
     let time = 2500;
@@ -147,6 +154,24 @@ function message_toast(icon, text) {
         showConfirmButton: false,
         timer: time
     });
+}
+
+//delete
+function deleteConfirm($id) {
+    Swal.fire({
+        title: '¿Está seguro de eliminar?',
+        text: "Esta operación no es reversible.",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#f97f16',
+        cancelButtonColor: '#e60017',
+        confirmButtonText: 'Eliminar',
+        cancelButtonText: 'Cancelar'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            $('#delete' + $id).submit();
+        }
+    })
 }
 
 $(document).ready(function () {
