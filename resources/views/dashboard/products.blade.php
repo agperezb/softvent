@@ -3,13 +3,15 @@
 @section('title', 'Productos')
 
 @section('content')
-    <div class="controls-send">
-        <button class="button-soft button-soft-secondary"
-                onclick="window.location.replace('products/{{'register'}}')">
-            <span>Registrar</span>
-            <i class="fa fa-plus"></i>
-        </button>
-    </div>
+{{--    @if(Auth::user()->user_profile != 'administrator')--}}
+        <div class="controls-send">
+            <button class="button-soft button-soft-secondary"
+                    onclick="window.location.replace('products/{{'register'}}')">
+                <span>Registrar</span>
+                <i class="fa fa-plus"></i>
+            </button>
+        </div>
+{{--    @endif--}}
     <table class="table table-pagination">
         <thead>
         <tr>
@@ -34,22 +36,17 @@
                             title="Editar"><i class="fa fa-edit"></i>
                     </button>
                     <button onclick="window.location.replace('products/status/{{$product->product_id}}')"
-                            class="button-soft {{($product->product_active==1)?'button-soft-secondary':'button-soft-success'}}"
+                            class="button-soft {{($product->product_status==1)?'button-soft-secondary':'button-soft-success'}}"
                             data-toggle="tooltip"
                             data-placement="bottom"
-                            title="{{($product->product_active==1)?'Desactivar':'Activar'}}"><i
-                            class="fa {{($product->product_active==1)?'fa-times':'fa-check'}}"></i>
+                            title="{{($product->product_status==1)?'Desactivar':'Activar'}}"><i
+                            class="fa {{($product->product_status==1)?'fa-times':'fa-check'}}"></i>
                     </button>
-                    <form id="delete{{$product->product_id}}" method="POST"
-                          action="{{route('products_delete',$product->product_id)}}">
-                        @csrf
-                        @method('DELETE')
-                    </form>
-                    <button onclick="deleteConfirm('{{$product->product_id}}')"
-                            class="button-soft button-soft-error" data-toggle="tooltip" data-placement="right"
-                            title="Eliminar"><i class="fa fa-trash-alt"></i></button>
                 </td>
                 <td>{{$product->product_name}}</td>
+                <td>{{$product->product_stock}}</td>
+                <td>{{$product->product_value}}</td>
+                <td>{{$product->product_description}}</td>
                 <td>
                     <button class="button-soft button-soft-secondary"
                             onclick="product_image('{{$product->product_id}}')">
@@ -57,7 +54,9 @@
                         <i class="fa fa-image"></i>
                     </button>
                 </td>
-                <td>{{($product->product_active==1)?'Activo':'Inactivo'}}</td>
+                <td>{{$product->categories->category_name}}</td>
+                <td>{{$product->providers->provider_name}}</td>
+                <td>{{($product->product_status==1)?'Activo':'Inactivo'}}</td>
             </tr>
         @endforeach
         </tbody>
@@ -73,7 +72,7 @@
 @section('modal')
     <!-- Modal register-->
     <div class="modal fade" id="register" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-md modal-dialog-centered">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
                     <span class="modal-title" id="exampleModalLabel"><i class="fa fa-map-signs"></i>@if(session('id_to_update')) Editar @else Registrar @endif producto</span>
@@ -149,7 +148,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
                                 <div class="mb-3 input-soft">
                                     <label class="form-label">Descripción</label>
                                     <textarea cols="3" type="text" class="form-control input-border"
@@ -158,7 +157,7 @@
                                               @if ($errors->has('product_description')) autofocus @endif>@if(session('data')){{session('data')->product_description}}@endif{{ old('product_description') }}</textarea>
                                 </div>
                             </div>
-                            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
                                 <div class="mb-3 input-soft">
                                     <label
                                         class="form-label">Imagen principal

@@ -14,6 +14,7 @@ class CreateProvidersTable extends Migration
             $table->string('provider_nit', 20)->unique();
             $table->string('provider_direction', 100);
             $table->string('provider_phone', 15);
+            $table->boolean('provider_status');
             $table->timestamps();
         });
     }

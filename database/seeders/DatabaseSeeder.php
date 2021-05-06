@@ -12,14 +12,57 @@ class DatabaseSeeder extends Seeder
 {
     public function run()
     {
+        DB::table('commerces')->insert([
+            'commerce_id' => 1,
+            'commerce_name' => 'admin',
+            'commerce_description' => 'admin',
+            'commerce_status' => 1,
+        ]);
         DB::table('users')->insert([
             'user_profile' => 'administrator',
             'email' => 'admin@gmail.com',
-            'commerce_id' => null,
+            'commerce_id' => 1,
             'password' => Hash::make('admin12345'),
             'user_status' => 1,
             'email_verified_at' => Date::now(),
         ]);
+
+        DB::table('document_types')->insert([
+            'document_type_name' => 'CC',
+        ]);
+        DB::table('commerces')->insert([
+            'commerce_id' => 2,
+            'commerce_name' => 'Tienda DRA',
+            'commerce_description' => 'Tienda distribuidora de ropa amanecer',
+            'commerce_status' => 1,
+        ]);
+        DB::table('users')->insert([
+            'id' => 2,
+            'user_profile' => 'commerce',
+            'email' => 'commerce@gmail.com',
+            'commerce_id' => 2,
+            'password' => Hash::make('commerce'),
+            'user_status' => 1,
+            'email_verified_at' => Date::now(),
+        ]);
+        DB::table('persons')->insert([
+            'user_id' => 2,
+            'document_type_id' => 1,
+            'person_name' => 'Angel',
+            'person_last_name' => 'Perez',
+            'person_document' => '1003145324',
+            'person_phone' => '3124534321',
+            'person_birthdate' => now(),
+        ]);
+
+        DB::table('providers')->insert([
+            'provider_name' => 'Autoservicios la provincia',
+            'provider_nit' => '1003452321',
+            'provider_direction' => 'Barrio Centro N° 34-32',
+            'provider_phone' => '314356324',
+            'provider_status' => 1
+        ]);
+
 
         DB::table('categories')->insert([
             'category_name' => 'Ropa',

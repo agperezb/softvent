@@ -26,6 +26,7 @@
     },
     "dependencies": {
         "@fortawesome/fontawesome-free": "^5.15.3",
+        "air-datepicker": "^2.2.3",
         "bootstrap": "^4.6.0",
         "datatables": "^1.10.18",
         "datatables.net": "^1.10.24",
@@ -33,6 +34,7 @@
         "datatables.net-dt": "^1.10.24",
         "datatables.net-fixedcolumns": "^3.3.2",
         "jquery": "^3.6.0",
+        "js-datepicker": "^5.18.0",
         "jszip": "^3.6.0",
         "pdfmake": "^0.1.71",
         "select2": "^4.1.0-rc.0",

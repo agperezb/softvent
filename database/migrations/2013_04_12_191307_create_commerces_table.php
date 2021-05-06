@@ -11,7 +11,6 @@ class CreateCommercesTable extends Migration
         Schema::create('commerces', function (Blueprint $table) {
             $table->bigIncrements('commerce_id');
             $table->string('commerce_name', 50)->unique();
-            $table->mediumText('category_image')->nullable();
             $table->string('commerce_description', 50);
             $table->boolean('commerce_status');
             $table->timestamps();

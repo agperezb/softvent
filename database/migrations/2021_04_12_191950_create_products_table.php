@@ -14,7 +14,7 @@ class CreateProductsTable extends Migration
             $table->foreignId('category_id')->references('category_id')->on('categories');
             $table->foreignId('commerce_id')->references('commerce_id')->on('commerces');
             $table->string('product_name', 50);
-            $table->string('product_stock', 50);
+            $table->integer('product_stock');
             $table->mediumText('product_image')->nullable();
             $table->double('product_value');
             $table->string('product_description', 200);

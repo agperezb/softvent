@@ -20,4 +20,9 @@ class Person extends Model
         'person_phone',
         'person_birthdate',
     ];
+
+    public function document_types()
+    {
+        return $this->hasOne(DocumentType::class, 'document_type_id', 'document_type_id');
+    }
 }

@@ -144,6 +144,13 @@ function category_image(id) {
     });
 }
 
+function product_image(id) {
+    $.get("/products/image/" + id, function (data) {
+        $("#image-card").attr("src", "data:image/png;base64," + data);
+        $("#image-modal").modal('show');
+    });
+}
+
 function message_toast(icon, text) {
     let time = 2500;
     Swal.fire({
@@ -311,10 +318,54 @@ $(document).ready(function () {
         $('.categories').addClass('cta-button_active');
         $('#categories').addClass('link-navigation-active')
     }
+    if (url.toString().indexOf('commerces') !== -1) {
+        $('.users').addClass('cta-button_active');
+        $('#commerces').addClass('link-navigation-active')
+    }
     if (url.toString().indexOf('administrators') !== -1) {
         $('.users').addClass('cta-button_active');
         $('#administrators').addClass('active');
     }
+    if (url.toString().indexOf('providers') !== -1) {
+        $('.providers').addClass('cta-button_active');
+    }
+    if (url.toString().indexOf('products') !== -1) {
+        $('.products').addClass('cta-button_active');
+    }
+
+    $('.date-pick').datepicker({
+        language: {
+            days: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+            daysShort: ['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab'],
+            daysMin: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sa'],
+            months: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+            monthsShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+            today: 'Hoy',
+            clear: 'Limpiar',
+            dateFormat: 'yyyy-mm-dd',
+            timeFormat: 'hh:ii aa',
+            firstDay: 1
+        },
+        dateFormat: 'yyyy-mm-dd'
+    });
+
+    $('.datetime-pick').datepicker({
+        language: {
+            days: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+            daysShort: ['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab'],
+            daysMin: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sa'],
+            months: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+            monthsShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+            today: 'Hoy',
+            clear: 'Limpiar',
+            dateFormat: 'yyyy-mm-dd',
+            timeFormat: 'hh:ii aa',
+            firstDay: 1
+        },
+        timepicker: true,
+        timeFormat: 'hh:ii',
+        dateFormat: 'yyyy-mm-dd'
+    });
 })
 
 

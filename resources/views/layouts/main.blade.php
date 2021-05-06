@@ -28,26 +28,30 @@
                 <i class="fas fa-tachometer-alt"></i>
                 <span>Dashboard</span>
             </a>
-            <a href="" class="cta-button users">
-                <div class="border-focus"></div>
-                <i class="fas fa-users"></i>
-                <span>Usuarios</span>
-            </a>
-            <a href="" class="cta-button products">
+            @if(Auth::user()->user_profile == "administrator")
+                <a href="{{route('commerces')}}" class="cta-button users">
+                    <div class="border-focus"></div>
+                    <i class="fas fa-users"></i>
+                    <span>Usuarios</span>
+                </a>
+            @endif
+            <a href="{{route('products')}}" class="cta-button products">
                 <div class="border-focus"></div>
                 <i class="fas fa-box-open"></i>
                 <span>Productos</span>
             </a>
-            <a href="{{route('provider')}}" class="cta-button providers">
+            <a href="{{route('providers')}}" class="cta-button providers">
                 <div class="border-focus"></div>
                 <i class="fas fa-hand-holding-medical"></i>
                 <span>Provedores</span>
             </a>
-            <a href="{{route('categories')}}" class="cta-button categories">
-                <div class="border-focus"></div>
-                <i class="fas fa-clipboard-list"></i>
-                <span>Categorías</span>
-            </a>
+            @if(Auth::user()->user_profile == "administrator")
+                <a href="{{route('categories')}}" class="cta-button categories">
+                    <div class="border-focus"></div>
+                    <i class="fas fa-clipboard-list"></i>
+                    <span>Categorías</span>
+                </a>
+            @endif
             <a id="logout" class="cta-button">
                 <div class="border-focus"></div>
                 <i class="fas fa-power-off"></i>

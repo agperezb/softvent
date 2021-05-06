@@ -14,7 +14,7 @@ class CreateUsersTable extends Migration
             $table->string('user_profile', '20');
             $table->boolean('user_status');
             $table->string('email', '100')->unique();
-            $table->integer('commerce_id')->unsigned()->nullable();
+            $table->foreignId('commerce_id')->references('commerce_id')->on('commerces');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password', '100');
             $table->rememberToken();

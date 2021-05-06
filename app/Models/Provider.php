@@ -16,5 +16,6 @@ class Provider extends Model
         'provider_nit',
         'provider_direction',
         'provider_phone',
+        'provider_status'
     ];
 }

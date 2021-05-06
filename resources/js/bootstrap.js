@@ -15,6 +15,8 @@ try {
     window.Swal = require('sweetalert2');
     window.select2 = require('select2'),
     window.DataTable = require('datatables');
+    require('air-datepicker/dist/js/datepicker.min');
+    require('air-datepicker/dist/js/i18n/datepicker.es');
     require('datatables.net-buttons/js/dataTables.buttons.min');
     require('datatables.net-buttons/js/buttons.html5.min');
     require('datatables.net-buttons/js/buttons.colVis.min');
