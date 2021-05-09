@@ -10,7 +10,7 @@
             <span class="user-notificacion"><i class="fas fa-bell"></i><span>5</span></span>
             <div class="user-account">
                 <div class="user-name">
-                    <span class="user-rol">Administrador</span>
+                    <span class="user-rol">@if(Auth::user()->user_profile == "administrator")Administrador @elseif(Auth::user()->user_profile == "commerce")Comercio @else Cajero @endif</span>
                     <span class="profile">agperezb</span>
                 </div>
                 <div class="user-photo">
@@ -35,6 +35,13 @@
                     <span>Usuarios</span>
                 </a>
             @endif
+            @if(Auth::user()->user_profile == "commerce")
+                <a href="{{route('cashiers')}}" class="cta-button cashiers">
+                    <div class="border-focus"></div>
+                    <i class="fas fa-user-friends"></i>
+                    <span>Cajeros</span>
+                </a>
+            @endif
             <a href="{{route('products')}}" class="cta-button products">
                 <div class="border-focus"></div>
                 <i class="fas fa-box-open"></i>
@@ -54,7 +61,7 @@
             @endif
             <a id="logout" class="cta-button">
                 <div class="border-focus"></div>
-                <i class="fas fa-power-off"></i>
+                <i class="fas fa-sign-out-alt"></i>
                 <span>Cerrar sesión</span>
             </a>
             <form action="{{route('logout')}}" id="form-logout" method="POST">

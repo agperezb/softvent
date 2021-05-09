@@ -53,6 +53,24 @@
         @endforeach
         </tbody>
     </table>
+
+    <script>
+        $('.date-pick').datepicker({
+        language: {
+            days: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+            daysShort: ['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab'],
+            daysMin: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sa'],
+            months: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+            monthsShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+            today: 'Hoy',
+            clear: 'Limpiar',
+            dateFormat: 'yyyy-mm-dd',
+            timeFormat: 'hh:ii aa',
+            firstDay: 1
+        },
+        dateFormat: 'yyyy-mm-dd'
+    });
+    </script>
 @stop
 
 @section('navigation')
@@ -85,29 +103,38 @@
                                     <label class="form-label">Nombre del comercio</label>
                                     <input type="text" class="form-control input-border" name="commerce_name"
                                            placeholder="Digite el nombre del comercio" maxlength="30"
-                                           value="@if(session('data')){{session('data')->commerce_name}}@endif{{ old('commerce_name') }}"
+                                           value="@if(session('data')){{session('data')->commerce->commerce_name}}@endif{{ old('commerce_name') }}"
                                            @if ($errors->has('commerce_name')) autofocus @endif>
                                 </div>
                             </div>
                             <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
                                 <div class="mb-3 input-soft">
-                                    <label class="form-label">Nombre de la persona</label>
+                                    <label class="form-label">Nombre</label>
                                     <input type="text" class="form-control input-border" name="person_name"
                                            placeholder="Digite el nombre de la persona" maxlength="30"
-                                           value="@if(session('data')){{session('data')->person_name}}@endif{{ old('person_name') }}"
+                                           value="@if(session('data')){{session('data')->person->person_name}}@endif{{ old('person_name') }}"
                                            @if ($errors->has('person_name')) autofocus @endif>
                                 </div>
                             </div>
                             <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
                                 <div class="mb-3 input-soft">
-                                    <label class="form-label">Categoría</label>
+                                    <label class="form-label">Apellido</label>
+                                    <input type="text" class="form-control input-border" name="person_last_name"
+                                           placeholder="Digite el nombre de la persona" maxlength="30"
+                                           value="@if(session('data')){{session('data')->person->person_last_name}}@endif{{ old('person_last_name') }}"
+                                           @if ($errors->has('person_last_name')) autofocus @endif>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                                <div class="mb-3 input-soft">
+                                    <label class="form-label">Tipo de documento</label>
                                     <select id="category" type="text" class="form-control input-border select-single"
                                             name="document_type_id"
                                             @if ($errors->has('category_id')) autofocus @endif>
                                         <option></option>
                                         @foreach($document_types as $document_type)
                                             <option
-                                                @if(session('data')){{(session('data')->document_type_id == $document_type->document_type_id)?'selected':''}}
+                                                @if(session('data')){{(session('data')->person->document_type_id == $document_type->document_type_id)?'selected':''}}
                                                 @endif
                                                 @if(old('document_type_id')){{(old('document_type_id') == $document_type->document_type_id)?'selected':''}}@endif
                                                 value="{{$document_type->document_type_id}}">{{$document_type->document_type_name}}</option>
@@ -120,25 +147,25 @@
                                     <label class="form-label">Numero de documento</label>
                                     <input type="text" class="form-control input-border" name="person_document"
                                            placeholder="Digite el numero de documento" maxlength="30"
-                                           value="@if(session('data')){{session('data')->person_document}}@endif{{ old('person_document') }}"
+                                           value="@if(session('data')){{session('data')->person->person_document}}@endif{{ old('person_document') }}"
                                            @if ($errors->has('person_document')) autofocus @endif>
                                 </div>
                             </div>
                             <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
                                 <div class="mb-3 input-soft">
                                     <label class="form-label">Teléfono</label>
-                                    <input type="text" class="form-control input-border" name="person_document"
+                                    <input type="text" class="form-control input-border" name="person_phone"
                                            placeholder="Digite el teléfono" maxlength="30"
-                                           value="@if(session('data')){{session('data')->person_phone}}@endif{{ old('person_phone') }}"
+                                           value="@if(session('data')){{session('data')->person->person_phone}}@endif{{ old('person_phone') }}"
                                            @if ($errors->has('person_phone')) autofocus @endif>
                                 </div>
                             </div>
                             <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
                                 <div class="mb-3 input-soft">
                                     <label class="form-label ">Fecha de nacimiento</label>
-                                    <input type="text" class="form-control date-pick input-border" id="my-element" name="person_birthdate"
+                                    <input type="date" class="form-control  input-border" name="person_birthdate"
                                            placeholder="Seleccione su fecha de nacimiento"
-                                           value="@if(session('data')){{session('data')->person_birthdate}}@endif{{ old('person_birthdate') }}"
+                                           value="@if(session('data')){{session('data')->person->person_birthdate}}@endif{{ old('person_birthdate') }}"
                                            @if ($errors->has('person_birthdate')) autofocus @endif>
                                 </div>
                             </div>
@@ -148,7 +175,7 @@
                                     <textarea cols="3" type="text" class="form-control input-border"
                                               name="commerce_description" maxlength="200"
                                               placeholder="Digite la descripción"
-                                              @if ($errors->has('commerce_description')) autofocus @endif>@if(session('data')){{session('data')->commerce_description}}@endif{{ old('commerce_description') }}</textarea>
+                                              @if ($errors->has('commerce_description')) autofocus @endif>@if(session('data')){{session('data')->commerce->commerce_description}}@endif{{ old('commerce_description') }}</textarea>
                                 </div>
                             </div>
                             <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
@@ -160,24 +187,26 @@
                                            @if ($errors->has('email')) autofocus @endif>
                                 </div>
                             </div>
-                            <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
-                                <div class="mb-3 input-soft">
-                                    <label class="form-label ">Contraseña</label>
-                                    <input type="password" class="form-control input-border" name="password"
-                                           placeholder="Digite la contraseña"
-                                           @if ($errors->has('password')) autofocus
-                                           @endif autocomplete="new-password">
+                            @if(!session('id_to_update'))
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                                    <div class="mb-3 input-soft">
+                                        <label class="form-label ">Contraseña</label>
+                                        <input type="password" class="form-control input-border" name="password"
+                                               placeholder="Digite la contraseña"
+                                               @if ($errors->has('password')) autofocus
+                                               @endif autocomplete="new-password">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
-                                <div class="mb-3 input-soft">
-                                    <label class="form-label ">Confirmar contraseña</label>
-                                    <input type="password" class="form-control input-border"
-                                           name="password_confirmation"
-                                           placeholder="Confirme la contraseña"
-                                           @if ($errors->has('password_confirmation')) autofocus @endif>
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                                    <div class="mb-3 input-soft">
+                                        <label class="form-label ">Confirmar contraseña</label>
+                                        <input type="password" class="form-control input-border"
+                                               name="password_confirmation"
+                                               placeholder="Confirme la contraseña"
+                                               @if ($errors->has('password_confirmation')) autofocus @endif>
+                                    </div>
                                 </div>
-                            </div>
+                            @endif
                         </div>
                     </div>
                     <div class="modal-footer">

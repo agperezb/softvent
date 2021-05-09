@@ -307,9 +307,11 @@ $(document).ready(function () {
     })
     /* -------------------- */
 
-    let cta_button = $('.cta-button');
     let url = window.location;
+    let cta_button = $('.cta-button');
+    let link_navigation = $('.link-navigation');
     cta_button.removeClass('cta-button_active');
+    link_navigation.removeClass('link-navigation-active');
 
     if (url.toString().indexOf('dashboard') !== -1) {
         $('.dashboard').addClass('cta-button_active');
@@ -322,6 +324,10 @@ $(document).ready(function () {
         $('.users').addClass('cta-button_active');
         $('#commerces').addClass('link-navigation-active')
     }
+    if (url.toString().indexOf('cashiers') !== -1) {
+        $('.cashiers').addClass('cta-button_active');
+        $('#cashiers').addClass('link-navigation-active')
+    }
     if (url.toString().indexOf('administrators') !== -1) {
         $('.users').addClass('cta-button_active');
         $('#administrators').addClass('active');
@@ -332,6 +338,10 @@ $(document).ready(function () {
     if (url.toString().indexOf('products') !== -1) {
         $('.products').addClass('cta-button_active');
     }
+
+    /*$('.my-datepicker').datepicker({
+        dateFormat: 'yyyy-mm-dd'
+    });
 
     $('.date-pick').datepicker({
         language: {
@@ -365,7 +375,7 @@ $(document).ready(function () {
         timepicker: true,
         timeFormat: 'hh:ii',
         dateFormat: 'yyyy-mm-dd'
-    });
+    });*/
 })
 
 

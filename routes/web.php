@@ -28,13 +28,11 @@ Route::middleware(['auth', 'verified', 'active'])->group(function () {
         Route::post('/products', [ProductController::class, 'store'])->name('products');
         Route::put('/products/{id}', [ProductController::class, 'update'])->name('products_update');
 
-        //providers
+        //provider
         Route::get('providers', [ProviderController::class, 'index'])->name('providers');
-        Route::get('/providers/{id}', [ProviderController::class, 'edit']);
-        Route::get('/providers/status/{id}', [ProviderController::class, 'status']);
-        Route::post('/providers', [ProviderController::class, 'store'])->name('providers');
-        Route::put('/providers/{id}', [ProviderController::class, 'update'])->name('providers_update');
-        Route::delete('/providers/{id}', [ProviderController::class, 'destroy'])->name('providers_delete');
+
+        //cashier
+        Route::get('cashiers', [CommerceController::class, 'index_cashier'])->name('cashiers');
 
 
         Route::middleware(['is.administrator'])->group(function () {
@@ -61,6 +59,18 @@ Route::middleware(['auth', 'verified', 'active'])->group(function () {
 
             Route::middleware(['is.commerce'])->group(function () {
 
+                //providers
+                Route::get('/providers/{id}', [ProviderController::class, 'edit']);
+                Route::get('/providers/status/{id}', [ProviderController::class, 'status']);
+                Route::post('/providers', [ProviderController::class, 'store'])->name('providers');
+                Route::put('/providers/{id}', [ProviderController::class, 'update'])->name('providers_update');
+                Route::delete('/providers/{id}', [ProviderController::class, 'destroy'])->name('providers_delete');
+
+                //cashier
+                Route::get('/cashiers/{id}', [CommerceController::class, 'edit']);
+                Route::get('/cashiers/status/{id}', [CommerceController::class, 'status']);
+                Route::post('/cashiers', [CommerceController::class, 'store'])->name('cashiers');
+                Route::put('/cashiers/{id}', [CommerceController::class, 'update'])->name('cashiers_update');
             });
 
             Route::middleware(['is.cashier'])->group(function () {

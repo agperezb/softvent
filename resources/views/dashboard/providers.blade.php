@@ -3,17 +3,19 @@
 @section('title', 'Proveedores')
 
 @section('content')
-    <div class="controls-send">
-        <button class="button-soft button-soft-secondary"
-                onclick="window.location.replace('providers/{{'register'}}')">
-            <span>Registrar</span>
-            <i class="fa fa-plus"></i>
-        </button>
-    </div>
+    @if(Auth::user()->user_profile == 'commerce')
+        <div class="controls-send">
+            <button class="button-soft button-soft-secondary"
+                    onclick="window.location.replace('providers/{{'register'}}')">
+                <span>Registrar</span>
+                <i class="fa fa-plus"></i>
+            </button>
+        </div>
+    @endif
     <table class="table table-pagination">
         <thead>
         <tr>
-            <th scope="col">Opciones</th>
+            @if(Auth::user()->user_profile == 'commerce')<th scope="col">Opciones</th>@endif
             <th scope="col">Nombre</th>
             <th scope="col">Nit</th>
             <th scope="col">Dirección</th>
@@ -24,28 +26,30 @@
         <tbody>
         @foreach($providers as $provider)
             <tr>
-                <td class="controls-table">
-                    <button onclick="window.location.replace('providers/{{$provider->provider_id}}')"
-                            class="button-soft button-soft-primary" data-toggle="tooltip"
-                            data-placement="left"
-                            title="Editar"><i class="fa fa-edit"></i>
-                    </button>
-                    <button onclick="window.location.replace('providers/status/{{$provider->provider_id}}')"
-                            class="button-soft {{($provider->provider_status==1)?'button-soft-secondary':'button-soft-success'}}"
-                            data-toggle="tooltip"
-                            data-placement="bottom"
-                            title="{{($provider->provider_status==1)?'Desactivar':'Activar'}}"><i
-                            class="fa {{($provider->provider_status==1)?'fa-times':'fa-check'}}"></i>
-                    </button>
-                    <form id="delete{{$provider->provider_id}}" method="POST"
-                          action="{{route('providers_delete',$provider->provider_id)}}">
-                        @csrf
-                        @method('DELETE')
-                    </form>
-                    <button onclick="deleteConfirm('{{$provider->provider_id}}')"
-                            class="button-soft button-soft-error" data-toggle="tooltip" data-placement="right"
-                            title="Eliminar"><i class="fa fa-trash-alt"></i></button>
-                </td>
+                @if(Auth::user()->user_profile == 'commerce')
+                    <td class="controls-table">
+                        <button onclick="window.location.replace('providers/{{$provider->provider_id}}')"
+                                class="button-soft button-soft-primary" data-toggle="tooltip"
+                                data-placement="left"
+                                title="Editar"><i class="fa fa-edit"></i>
+                        </button>
+                        <button onclick="window.location.replace('providers/status/{{$provider->provider_id}}')"
+                                class="button-soft {{($provider->provider_status==1)?'button-soft-secondary':'button-soft-success'}}"
+                                data-toggle="tooltip"
+                                data-placement="bottom"
+                                title="{{($provider->provider_status==1)?'Desactivar':'Activar'}}"><i
+                                class="fa {{($provider->provider_status==1)?'fa-times':'fa-check'}}"></i>
+                        </button>
+                        <form id="delete{{$provider->provider_id}}" method="POST"
+                              action="{{route('providers_delete',$provider->provider_id)}}">
+                            @csrf
+                            @method('DELETE')
+                        </form>
+                        <button onclick="deleteConfirm('{{$provider->provider_id}}')"
+                                class="button-soft button-soft-error" data-toggle="tooltip" data-placement="right"
+                                title="Eliminar"><i class="fa fa-trash-alt"></i></button>
+                    </td>
+                @endif
                 <td>{{$provider->provider_name}}</td>
                 <td>{{$provider->provider_nit}}</td>
                 <td>{{$provider->provider_direction}}</td>
