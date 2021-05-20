@@ -135,7 +135,7 @@
                             <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
                                 <div class="mb-3 input-soft">
                                     <label class="form-label ">Fecha de nacimiento</label>
-                                    <input type="date" class="form-control  input-border" name="person_birthdate"
+                                    <input type="date" class="form-control input-border" name="person_birthdate"
                                            placeholder="Seleccione su fecha de nacimiento"
                                            value="@if(session('data')){{session('data')->person->person_birthdate}}@endif{{ old('person_birthdate') }}"
                                            @if ($errors->has('person_birthdate')) autofocus @endif>

@@ -339,9 +339,6 @@ $(document).ready(function () {
         $('.products').addClass('cta-button_active');
     }
 
-    /*$('.my-datepicker').datepicker({
-        dateFormat: 'yyyy-mm-dd'
-    });
 
     $('.date-pick').datepicker({
         language: {
@@ -375,7 +372,7 @@ $(document).ready(function () {
         timepicker: true,
         timeFormat: 'hh:ii',
         dateFormat: 'yyyy-mm-dd'
-    });*/
+    });
 })
 
 
