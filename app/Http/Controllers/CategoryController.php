@@ -55,7 +55,6 @@ class CategoryController extends Controller
         $request['category_image'] = base64_encode(file_get_contents($request->file('file_image')->getRealPath()));
 
         try {
-
             Category::create([
                 'category_name' => $request->category_name,
                 'category_active' => $request->category_active,
